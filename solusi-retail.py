@@ -26,30 +26,13 @@ from openpyxl.styles import Alignment, Border, Font, Side
 from openpyxl.utils import get_column_letter
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# HELPER — EXCEL STYLING
-# ─────────────────────────────────────────────────────────────────────────────
-
 def thin_border() -> Border:
     s = Side(style="thin", color="BFBFBF")
     return Border(left=s, right=s, top=s, bottom=s)
 
-
-# ─────────────────────────────────────────────────────────────────────────────
-# HELPER — RISING STAR: Streak Detection
-# ─────────────────────────────────────────────────────────────────────────────
-
 def calc_max_streak(group: pd.DataFrame) -> dict:
-    """
-    Mencari sesi tren naik terpanjang (consecutive rising MA days) per produk.
 
-    Pendekatan:
-    - Iterasi nilai numpy array (bukan iterrows) untuk menghindari overhead
-      pembuatan Series per baris — ~50-100x lebih cepat untuk dataset besar.
-    - Mengembalikan streak terpanjang beserta growth% sesi tersebut.
-
-    Growth % = (MA akhir sesi / MA awal sesi - 1) * 100
-    """
+    #Growth % = (MA akhir sesi / MA awal sesi - 1) * 100
     is_rising = group['is_rising'].values
     ma3_vals  = group['ma3'].values
 
@@ -78,10 +61,6 @@ def calc_max_streak(group: pd.DataFrame) -> dict:
     return {'max_streak': best_streak, 'growth_pct': growth}
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# HELPER — VISUALISASI: Legend Sorting
-# ─────────────────────────────────────────────────────────────────────────────
-
 def sort_legend(ax: plt.Axes):
     """Top Sales dulu, lalu Rising Star diurutkan by rank number."""
     handles, labels = ax.get_legend_handles_labels()
@@ -92,13 +71,9 @@ def sort_legend(ax: plt.Axes):
     return [x[0] for x in merged], [x[1] for x in merged]
 
 
-# ─────────────────────────────────────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────────────────────────────────────
-
 def main():
 
-    # ── 0. LOAD & VALIDATE DATA ───────────────────────────────────────────────
+    #LOAD & VALIDATE DATA
     data_file = 'data_penjualan.xlsx'
     if not os.path.exists(data_file):
         sys.exit(f"[ERROR] File '{data_file}' tidak ditemukan di: {os.getcwd()}")
@@ -118,9 +93,6 @@ def main():
     print(f"Produk unik  : {df['kode_produk'].nunique():,}")
     print(f"Rentang tgl  : {df['tgl_transaksi'].min().date()} "
           f"s/d {df['tgl_transaksi'].max().date()}")
-
-
-    # ── 1. RISING STAR DETECTION ──────────────────────────────────────────────
 
     # Agregasi nilai penjualan harian per produk
     daily_df = (
@@ -169,7 +141,7 @@ def main():
     ].to_string())
 
 
-    # ── 2. VISUALISASI ────────────────────────────────────────────────────────
+    #VISUALISASI
 
     top3_codes = (
         df.groupby('kode_produk')['total_nilai']
@@ -285,7 +257,7 @@ def main():
     print("Grafik disimpan: rising_star_actual.png")
 
 
-    # ── 3. POTENTIAL PACKAGING — APRIORI (mlxtend) ────────────────────────────
+    # POTENTIAL PACKAGING — APRIORI (mlxtend)
 
     # Basket matrix: baris = invoice, kolom = produk, nilai = bool (dibeli / tidak)
     basket_matrix = (
@@ -340,11 +312,11 @@ def main():
     print(f"Jumlah rules Potential Packaging: {len(output_pp)}")
 
 
-    # ── 4. EXPORT KE EXCEL ────────────────────────────────────────────────────
+    #EXPORT KE EXCEL
 
     wb = Workbook()
 
-    # ── Sheet 1: Rising Star ──
+    # Sheet 1: Rising Star
     ws1 = wb.active
     ws1.title = "Rising Star"
     ws1.sheet_view.showGridLines = False
@@ -376,7 +348,7 @@ def main():
                 c.number_format = fmt
         ws1.row_dimensions[r].height = 18
 
-    # ── Sheet 2: Potential Packaging ──
+    # Sheet 2: Potential Packaging
     ws2 = wb.create_sheet("Potential Packaging")
     ws2.sheet_view.showGridLines = False
 
@@ -419,7 +391,5 @@ def main():
     print(f"  rising_star_index.png")
     print(f"  rising_star_actual.png")
 
-
-# ─────────────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
     main()
