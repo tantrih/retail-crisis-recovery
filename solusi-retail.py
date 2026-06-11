@@ -26,9 +26,9 @@ from openpyxl.styles import Alignment, Border, Font, Side
 from openpyxl.utils import get_column_letter
 
 
-# ─────────────────────────────────────────────────────────────────────────────
+
 # HELPER — EXCEL STYLING
-# ─────────────────────────────────────────────────────────────────────────────
+
 
 def thin_border() -> Border:
     s = Side(style="thin", color="BFBFBF")
