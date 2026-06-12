@@ -1,4 +1,4 @@
-# 🛒 Retail Crisis & Recovery — Hidden Growth Product Detection
+# Retail Crisis & Recovery — Hidden Growth Product Detection
 
 > **DQLab x UjiKompetensi Hackathon** | Python · Pandas · Matplotlib · Mlxtend  
 > Kompetisi: `HACK-2026-PYTHON-01`
@@ -12,15 +12,10 @@ Sebuah minimart (DQFresh Mart) mengalami penurunan total penjualan selama bebera
 Proyek ini mereplikasi analisis investigatif yang dilakukan Sophia (manajer toko) untuk **membantah asumsi tersebut secara data-driven** — menemukan produk yang tumbuh konsisten namun tidak terlihat di agregasi tradisional, dan mengidentifikasi pola pembelian bersama untuk strategi bundling.
 
 ---
-
-## ❓ Pertanyaan Bisnis
-
-| # | Pertanyaan |
-|---|-----------|
-| 1 | Apakah penurunan penjualan sepenuhnya disebabkan faktor eksternal, atau ada sinyal pertumbuhan tersembunyi yang terlewat? |
-| 2 | Produk mana yang menunjukkan tren kenaikan konsisten dalam 30 hari terakhir meski kontribusi revenue-nya kecil? |
-| 3 | Apakah produk-produk yang tumbuh tersebut memiliki pola pembelian bersama yang bisa dimanfaatkan untuk strategi bundling? |
-| 4 | Bagaimana kecepatan pertumbuhan produk tersembunyi dibandingkan dengan produk terlaris secara keseluruhan? |
+1. Apakah penurunan penjualan sepenuhnya disebabkan faktor eksternal, atau ada sinyal pertumbuhan tersembunyi yang terlewat? |
+2.Produk mana yang menunjukkan tren kenaikan konsisten dalam 30 hari terakhir meski kontribusi revenue-nya kecil? |
+3.Apakah produk-produk yang tumbuh tersebut memiliki pola pembelian bersama yang bisa dimanfaatkan untuk strategi bundling? |
+4.Bagaimana kecepatan pertumbuhan produk tersembunyi dibandingkan dengan produk terlaris secara keseluruhan? |
 
 ---
 
@@ -38,7 +33,7 @@ Ini adalah kasus klasik **survivorship bias dalam analitik retail**: sistem hany
 
 ---
 
-## 📊 Dataset
+## Dataset
 
 | Atribut | Detail |
 |---------|--------|
@@ -63,7 +58,7 @@ Ini adalah kasus klasik **survivorship bias dalam analitik retail**: sistem hany
 
 ---
 
-## 🧹 Data Quality & Cleaning
+##  Data Quality & Cleaning
 
 Dataset ini **tidak memerlukan cleaning** (dinyatakan eksplisit dalam spesifikasi soal), namun validasi tetap dilakukan:
 
@@ -80,7 +75,7 @@ Saat melakukan visualisasi, hari-hari di mana produk tertentu tidak memiliki tra
 
 ---
 
-## ⚙️ Proses Analisis
+## Proses Analisis
 
 ### Tahap 1 — Rising Star Detection
 
@@ -129,7 +124,7 @@ Dua jenis grafik dihasilkan:
 
 ---
 
-## 💡 Insight yang Ditemukan
+## Insight yang Ditemukan
 
 ### Rising Star Products (4 produk)
 
@@ -157,7 +152,7 @@ Dua jenis grafik dihasilkan:
 
 ---
 
-## 📁 Output yang Dihasilkan
+## Output yang Dihasilkan
 
 ```
 python solusi-retail.py
@@ -171,7 +166,7 @@ python solusi-retail.py
 
 ---
 
-## 🛠️ Tech Stack & Versi
+## Tech Stack & Versi
 
 | Library | Versi | Fungsi |
 |---------|-------|--------|
@@ -183,37 +178,7 @@ python solusi-retail.py
 
 ---
 
-## 🗂️ Struktur Repository
-
-```
-retail-crisis-recovery/
-├── solusi-retail.py          # Script utama (satu-satunya yang dikirim)
-├── data_penjualan.xlsx       # Dataset transaksi
-├── retail_insight.xlsx       # Output: Excel insight
-├── rising_star_index.png     # Output: Grafik index
-├── rising_star_actual.png    # Output: Grafik aktual
-└── README.md                 # Dokumentasi ini
-```
-
----
-
-## ▶️ Cara Menjalankan
-
-```bash
-# 1. Clone repository
-git clone https://github.com/USERNAME/retail-crisis-recovery.git
-cd retail-crisis-recovery
-
-# 2. Install dependencies
-pip install pandas==2.3.1 matplotlib==3.10.7 mlxtend==0.23.4 openpyxl==3.1.5
-
-# 3. Jalankan script
-python solusi-retail.py
-```
-
----
-
-## 🔑 Keputusan Teknis & Trade-offs
+## Keputusan Teknis & Trade-offs
 
 | Keputusan | Alternatif | Alasan Dipilih |
 |-----------|-----------|----------------|
@@ -223,8 +188,3 @@ python solusi-retail.py
 | mlxtend `apriori` + `association_rules` | Implementasi manual | Wajib oleh spesifikasi soal; juga lebih maintainable dan teruji |
 
 ---
-
-## 👤 Author
-
-Dibuat sebagai submission hackathon dan portofolio data analytics.  
-Kode ini merepresentasikan kemampuan: **time-series analysis, market basket analysis, data visualization, dan translasi insight ke rekomendasi bisnis**.
