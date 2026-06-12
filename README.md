@@ -12,11 +12,13 @@ Sebuah minimart (DQFresh Mart) mengalami penurunan total penjualan selama bebera
 Proyek ini mereplikasi analisis investigatif yang dilakukan Sophia (manajer toko) untuk **membantah asumsi tersebut secara data-driven** — menemukan produk yang tumbuh konsisten namun tidak terlihat di agregasi tradisional, dan mengidentifikasi pola pembelian bersama untuk strategi bundling.
 
 ---
-1. Apakah penurunan penjualan sepenuhnya disebabkan faktor eksternal, atau ada sinyal pertumbuhan tersembunyi yang terlewat? |
-2.Produk mana yang menunjukkan tren kenaikan konsisten dalam 30 hari terakhir meski kontribusi revenue-nya kecil? |
-3.Apakah produk-produk yang tumbuh tersebut memiliki pola pembelian bersama yang bisa dimanfaatkan untuk strategi bundling? |
-4.Bagaimana kecepatan pertumbuhan produk tersembunyi dibandingkan dengan produk terlaris secara keseluruhan? |
+1. Apakah penurunan penjualan sepenuhnya disebabkan faktor eksternal, atau ada sinyal pertumbuhan tersembunyi yang terlewat?
 
+2.Produk mana yang menunjukkan tren kenaikan konsisten dalam 30 hari terakhir meski kontribusi revenue-nya kecil?
+
+3.Apakah produk-produk yang tumbuh tersebut memiliki pola pembelian bersama yang bisa dimanfaatkan untuk strategi bundling?
+
+4.Bagaimana kecepatan pertumbuhan produk tersembunyi dibandingkan dengan produk terlaris secara keseluruhan?
 ---
 
 ## 🔍 Masalah yang Diselesaikan
