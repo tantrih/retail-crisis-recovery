@@ -5,7 +5,7 @@
 
 ---
 
-## 📌 Ringkasan Proyek
+## Ringkasan Proyek
 
 Sebuah minimart (DQFresh Mart) mengalami penurunan total penjualan selama beberapa bulan. Manajemen awalnya menyimpulkan kondisi ini disebabkan oleh pelemahan ekonomi, lalu merespons dengan strategi defensif: mempertahankan produk bestseller lama dan mengurangi eksperimen produk baru.
 
@@ -21,7 +21,7 @@ Proyek ini mereplikasi analisis investigatif yang dilakukan Sophia (manajer toko
 4.Bagaimana kecepatan pertumbuhan produk tersembunyi dibandingkan dengan produk terlaris secara keseluruhan?
 ---
 
-## 🔍 Masalah yang Diselesaikan
+## Masalah yang Diselesaikan
 
 ### Bias Analitik dalam Agregasi Tradisional
 Dashboard toko hanya menampilkan **Top N produk berdasarkan total revenue** — metode ini secara sistematis menyembunyikan produk baru yang tumbuh cepat karena nilai absolut revenue-nya masih kecil.
